@@ -1,6 +1,6 @@
 # Interview: End-to-End Low Latency Optimized Binance WebSocket High Frequency Book Ticker Streaming (with Scaling & Distribution for Millions of Simultaneous End-User Connections)
 
-Here is the simplified architecture we are running at the moment:
+Here is the simplified architecture of what we are running at the moment:
 
 ![architecture](./img/1.png)
 
@@ -100,20 +100,20 @@ Another option here would have been to use something like Offset Explorer, a UI 
 
 I've provided this for you in the Kafka folder.
 
-# Consumer/Emitter
+## 3. Consumer/Emitter
 
 The most challenging aspect of this architecture is the last-mile integration with millions of devices. Although Kafka provides a scalable, fault-tolerant backbone for event-like data to be written to and read from, it does not support the WebSocket protocol. Additionally, simply adding support for the WebSocket protocol in Kafka would not scale. A 1:1 mapping between consumers and Kafka topics is simply not scalable and Kafka is not optimized to fan-out messages to a high number of clients over the Internet (Kafka _was_ Kafka designed chiefly for machine-to-machine communication inside a network). How would you address this issue?
 
-# Summary & Stretch Goals
+## Summary & Stretch Goals
 
 We want you Fork this repo and dev this up locally with Docker, and containerise the microservices.
 
-Strech:
+Stretch:
 
 - You mentioned using ECS on your CV. _Describe_ briefly the architecture you would use in deployment to scale this in AWS.
 - How would you optomise this stack for low latency?
 
-# Links
+## Links & Resources
 
 - [kafka-node](https://www.npmjs.com/package/kafka-node)
 - [kafkajs](https://www.npmjs.com/package/kafkajs)
